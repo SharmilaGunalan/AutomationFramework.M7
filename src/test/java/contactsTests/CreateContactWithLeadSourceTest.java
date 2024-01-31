@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -11,6 +12,7 @@ import genericUtilities.BaseClass;
 import genericUtilities.ExcelFileUtility;
 import genericUtilities.PropertyFileUtility;
 import genericUtilities.SeleniumUtility;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import objectRepository.ContactInfoPage;
 import objectRepository.ContactsPage;
 import objectRepository.CreateNewContactPage;
@@ -40,7 +42,11 @@ public class CreateContactWithLeadSourceTest extends BaseClass{
 		//Step 1: Launch the browser
 
 				// opening browser
-				WebDriver driver = new EdgeDriver();
+				//WebDriver driver = new EdgeDriver();
+		
+		WebDriverManager.firefoxdriver().setup();
+		driver = new FirefoxDriver();
+		
 				// maximizing the browser
 				sUtil.maximizeWindow(driver);
 				// implicit statement
